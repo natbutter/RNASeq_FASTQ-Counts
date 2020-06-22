@@ -1,0 +1,37 @@
+#A singularity script to run the repo
+#https://github.com/natbutter/RNASeq_FASTQ-Counts
+#Developed in the docker cotainer
+#If you use this script you must acknowledge SIH 
+#"The authors acknowledge the technical assistance provided by the Sydney Informatics Hub, a Core Research Facility of the University of Sydney."
+
+#Build with:
+
+#Run with
+
+###################
+
+Bootstrap: docker
+From: nbutter/star 
+
+#Directories are mounted on Artemis and NCI, so we add them here to bind in at runtime.
+#Change these as required by your HPC cluster
+%setup
+#mkdir ${SINGULARITY_ROOTFS}/workspace
+
+%files
+%labels
+    Maintainer nathaniel.butterworth
+    and Tracy Chew 
+    at the Sydney Informatics Hub
+    Version v1.0
+    Build with:
+    sudo singularity build --writable star.img star.build 
+    singularity exec star.img <command>
+
+%post
+
+%environment
+export PATH=/build/
+
+%runscript
+exec /bin/bash
