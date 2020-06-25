@@ -32,6 +32,9 @@ From: nbutter/star
 
 %environment
 export PATH=/build/
+export PATH=/build/bbmap/:$PATH
+export PATH=/build/STAR-2.7.3a/bin/Linux_x86_64/:$PATH
+export PATH=/build/samtools-1.10/bin/:$PATH
 
 %runscript
 exec /bin/bash
