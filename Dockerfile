@@ -47,6 +47,10 @@ RUN pip install multiqc==1.7 RSeQC==2.6.4
 
 RUN cd /build && rm -rf fastqc_v0.11.7.zip 2.7.3a.zip samtools-1.10.tar.bz2 BBMap_38.86.tar.gz htslib-1.9.tar.bz2
 
+RUN chmod 777 /build/FastQC/fastqc
+
+ENV PATH=/build/:$PATH
+ENV PATH=/build/FastQC/:$PATH
 ENV PATH=/build/bbmap/:$PATH
 ENV PATH=/build/STAR-2.7.3a/bin/Linux_x86_64/:$PATH
 ENV PATH=/build/samtools-1.10/bin/:$PATH 

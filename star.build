@@ -29,12 +29,14 @@ From: nbutter/star
     singularity exec star.img <command>
 
 %post
+chmod 777 /build/FastQC/fastqc
 
 %environment
-export PATH=/build/
+export PATH=/build/:$PATH
 export PATH=/build/bbmap/:$PATH
 export PATH=/build/STAR-2.7.3a/bin/Linux_x86_64/:$PATH
 export PATH=/build/samtools-1.10/bin/:$PATH
+export PATH=/build/FastQC
 
 %runscript
 exec /bin/bash
